@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "72ed10f6-6cf2-41fc-8a36-3d3c347e8819",
+		"name": "Security Oauth2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01-授权码-01-浏览器-/uaa/oauth/authorize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:53020/uaa/oauth/authorize?client_id=c1&response_type=code&scope=all&redirect_uri=http://www.baidu.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53020",
+					"path": [
+						"uaa",
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "c1"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "all"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "01-授权码-02-/uaa/oauth/token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "y2fSMV",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "zhangsan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:53020/uaa/oauth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "02-简化模式-浏览器",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:53020/uaa/oauth/authorize?client_id=c1&response_type=token&scope=all&redirect_uri=http://www.baidu.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53020",
+					"path": [
+						"uaa",
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "c1"
+						},
+						{
+							"key": "response_type",
+							"value": "token"
+						},
+						{
+							"key": "scope",
+							"value": "all"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03-密码模式",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "rVZ4M0",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "zhangsan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:53020/uaa/oauth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "04-客户端模式",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "rVZ4M0",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "zhangsan",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:53020/uaa/oauth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "55-请求resource",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiLlvKDkuIkiLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNjE5NjgxNzM0LCJhdXRob3JpdGllcyI6WyJwMSIsInAzIl0sImp0aSI6ImEyZmNkNzEyLWYzNzAtNDUwNS1hNjkwLWUwZDkwZjgwNGUyYSIsImNsaWVudF9pZCI6ImMxIn0.iZdFVmQuzlpH5TAWRSEoVBK-5AzjWjFYcjTH_aRZ0bU"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:53021/order/r1"
+			},
+			"response": []
+		},
+		{
+			"name": "50-验证token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:53020/uaa/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiLlvKDkuIkiLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNjE5NjgxNzM0LCJhdXRob3JpdGllcyI6WyJwMSIsInAzIl0sImp0aSI6ImEyZmNkNzEyLWYzNzAtNDUwNS1hNjkwLWUwZDkwZjgwNGUyYSIsImNsaWVudF9pZCI6ImMxIn0.iZdFVmQuzlpH5TAWRSEoVBK-5AzjWjFYcjTH_aRZ0bU",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53020",
+					"path": [
+						"uaa",
+						"oauth",
+						"check_token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiLlvKDkuIkiLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNjE5NjgxNzM0LCJhdXRob3JpdGllcyI6WyJwMSIsInAzIl0sImp0aSI6ImEyZmNkNzEyLWYzNzAtNDUwNS1hNjkwLWUwZDkwZjgwNGUyYSIsImNsaWVudF9pZCI6ImMxIn0.iZdFVmQuzlpH5TAWRSEoVBK-5AzjWjFYcjTH_aRZ0bU"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
